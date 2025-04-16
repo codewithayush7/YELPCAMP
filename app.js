@@ -48,6 +48,8 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(mongoSanitize());
 
+const secret=process.env.SECRET||'thisshouldbeabettersecret!';
+
 const store=MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24*60*60,
